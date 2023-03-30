@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Bcon from "./Bcon";
+import styled from 'styled-components';
+import { useSelector } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Dark = styled.div`
+background: #333;
+color: #fff;
+
+&.on {
+  background: #fff;
+  color: #333;
+}
+`
+const App = () => {
+    const { dark } = useSelector(store => store)
+    return (
+        <Dark className={dark ? 'on' : ''}>
+            <Bcon />
+        </Dark>
+    )
 }
 
 export default App;
